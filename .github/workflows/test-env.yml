@@ -1,0 +1,27 @@
+name: Test Environment
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: 3.10
+          auto-activate-base: false
+
+      - name: Create env from environment.yml
+        run: conda env create -f environment.yml
+
+      - name: Activate and install GPU deps
+        run: |
+          conda activate cagi_env
+          pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cu118
+
+      - name: Run test script
+        run: |
+          conda activate cagi_env
+          python -c "import torch; print(torch.__version__); print('CUDA:', torch.cuda.is_available())"
