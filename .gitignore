@@ -1,0 +1,54 @@
+# ---- Windows system files ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# ---- VS Code ----
+.vscode/
+
+# ---- Jupyter Notebooks ----
+.ipynb_checkpoints/
+
+# ---- Virtual Environments ----
+env/
+venv/
+ENV/
+VENV/
+*.env
+*.venv
+
+# ---- Mac and Linux temp files (if used on WSL or Git Bash) ----
+.DS_Store
+*.swp
+*.swo
+
+# ---- Windows temp files ----
+*.tmp
+*.bak
+*.~*
+~$*
+
+# ---- Test coverage reports ----
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# ---- Others ----
+*.sqlite3
+*.db
